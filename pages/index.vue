@@ -6,7 +6,7 @@
 </template>
 
 <script>
-console.log('Hello World!')
+console.log('Hello World!');
 </script>
 
 <style>
@@ -29,7 +29,7 @@ console.log('Hello World!')
 }
 
 .header {
-  font-family: Montserra;
+  font-family: Montserrat;
   color: darkseagreen;
   text-shadow: 1px 1px 3px rgb(133, 175, 133);
   text-align: center;
