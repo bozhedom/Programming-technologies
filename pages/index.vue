@@ -9,7 +9,7 @@
 console.log('Hello World!');
 </script>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Open+Sans:ital,wdth@0,75..100;1,75..100&display=swap');
 
