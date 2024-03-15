@@ -1,9 +1,9 @@
 <template>
-  <MyComponent />
+  <Header />
 </template>
 
 <script setup>
-import MyComponent from '~/components/MyComponent.vue';
+import Header from '~/components/Header.vue';
 </script>
 <style>
 :root {
