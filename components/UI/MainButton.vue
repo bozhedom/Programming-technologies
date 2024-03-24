@@ -118,6 +118,7 @@ input {
   justify-content: center;
   border-radius: 10px;
   /* padding: 16px 40px; */
+  cursor: pointer;
   font-size: 15px;
   line-height: 1;
   font-weight: 500;
@@ -127,14 +128,8 @@ input {
 .Button.grass {
   background-color: #029f59;
   color: white;
-  /* box-shadow: 0 2px 10px var(--black-a7); */
 }
-/* .Button.grass:hover {
-  background-color: var(--mauve-3);
-} */
-/* .Button.grass:focus {
-  box-shadow: 0 0 0 2px black;
-} */
+
 .Button.green {
   background-color: var(--green-4);
   color: var(--green-11);
