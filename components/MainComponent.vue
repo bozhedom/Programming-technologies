@@ -2,7 +2,7 @@
   <div class="main-wrapper">
     <Header class="header" />
     <MainBody class="main" />
-    <Footer class="footer"/>
+    <Footer class="footer" />
   </div>
 </template>
 

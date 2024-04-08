@@ -28,7 +28,7 @@
             </li>
           </ul>
         </div>
-        <MainButton />
+        <MainButton class="footer-button" />
       </div>
       <div class="info-data">
         <p class="copy-right">{{ copyRight }}</p>

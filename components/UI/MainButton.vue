@@ -117,13 +117,14 @@ input {
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  /* padding: 16px 40px; */
+  padding: 16px 40px; 
   cursor: pointer;
   font-size: 15px;
   line-height: 1;
   font-weight: 500;
-  height: 49px;
-  width: 204px;
+  /* height: 49px;
+
+  width: 204px; */
 }
 .Button.grass {
   background-color: #029f59;
