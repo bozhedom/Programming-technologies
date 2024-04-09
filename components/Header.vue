@@ -53,6 +53,28 @@ const nav = [
 @use 'styles/settings/MainScss' as MainScss;
 $gapHeader: 24px;
 
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-less-up {
+  @media (max-width: 1050px) {
+    @content;
+  }
+}
+
 .left-part,
 .nav-list,
 .right-part,
@@ -83,6 +105,12 @@ $gapHeader: 24px;
   margin: 0;
   list-style-type: none;
   gap: $gapHeader;
+
+  
+  @include for-desktop-less-up {
+    // widows: 100px; D:
+  }
+
 }
 
 .item-link {
@@ -103,6 +131,9 @@ $gapHeader: 24px;
   background-color: aquamarine; /* Для визуального представления шапки */
   align-items: center;
   justify-content: space-between;
+
+  @include for-desktop-less-up {
+  }
 }
 
 .header-logo {

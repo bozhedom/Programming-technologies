@@ -24,11 +24,13 @@
               <Email v-else-if="item.svg == 1" class="email-icon" />
               <FilledPoint v-else="item.svg == 2" class="filled-point-icon" />
 
-              <a :href="item.url" class="contact-item">{{ item.label }}</a>
+              <a :href="item.url" class="contact-item">{{ item.label }} </a>
             </li>
           </ul>
         </div>
-        <MainButton class="footer-button" />
+        <div class="footer-button">
+          <MainButton />
+        </div>
       </div>
       <div class="info-data">
         <p class="copy-right">{{ copyRight }}</p>
@@ -78,6 +80,8 @@ const infoData = [
     svg: 2,
   },
 ];
+const qwe = '<br>';
+const position = infoData[2].label.indexOf(' ул');
 </script>
 
 <style lang="scss" scoped>
@@ -124,7 +128,7 @@ a {
 }
 
 .contact-list {
-  margin-right: 228px;
+  // margin-right: 180px;
   font-family: var(--font-title);
 }
 
@@ -153,5 +157,10 @@ a {
 
 .police-conf {
   margin-right: 80px;
+}
+
+.footer-button {
+  // display: flex;
+  margin-left: auto;
 }
 </style>
