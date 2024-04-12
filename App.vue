@@ -15,6 +15,7 @@ import MainComponent from '~/components/MainComponent.vue';
   --font-text: Open-sans, sans-serif;
   font-family: var(--font-text);
 }
+
 html,
 body,
 #__nuxt {
