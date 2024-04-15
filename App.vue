@@ -9,6 +9,7 @@ import MainComponent from '~/components/MainComponent.vue';
 <style>
 /* @import '@csstools/normalize.css'; */
 @import 'reset-css';
+@import 'sanitize.css/assets.css';
 
 :root {
   --font-title: Montserrat, sans-serif;
