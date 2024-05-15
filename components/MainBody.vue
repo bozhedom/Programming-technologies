@@ -1,26 +1,47 @@
 <template>
   <main class="main-padding">
-    <div class="container">
-      <h3>Hello, World!</h3>
-      <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam maiores hic aut eos, sunt dolorem cupiditate dolor, id esse porro ratione aliquid ex necessitatibus saepe beatae corrupti debitis facere asperiores!</h5>
+    <div class="slider-container">
+      <slider />
     </div>
+    <informationBlock />
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import slider from '~/components/Slider';
+import informationBlock from '~/components/InformationBlock';
+</script>
 
 <style lang="scss" scoped>
 @use 'styles/settings/MainScss' as MainScss;
-
-.main-padding {
-  display: flex;
-  justify-content: center;
+@mixin for-phone-only {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
 }
 
-.container {
+@mixin for-phone-big {
+  @media screen and (max-width: 915px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait {
+  @media screen and (max-width: 1059px) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+.slider-container {
   padding-inline: MainScss.$mainSideMargin;
-  margin-top: 40px;
-  width: 1440px;
-  margin-bottom: 61px;
+
+  @include for-tablet-portrait {
+    padding-inline: MainScss.$mainSideMarginPhone;
+  }
 }
 </style>
