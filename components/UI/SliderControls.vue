@@ -59,6 +59,7 @@ const swiper = useSwiper();
   height: 12px;
   border-radius: 100%;
   border: none;
+  cursor: pointer;
 }
 
 .active {

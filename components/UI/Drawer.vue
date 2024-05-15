@@ -126,6 +126,7 @@ input {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  z-index: 10;
 }
 .DialogContent:focus {
   outline: none;

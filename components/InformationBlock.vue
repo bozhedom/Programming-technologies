@@ -3,10 +3,12 @@
     <div class="container">
       <div class="main-info-card">
         <h3 class="header-card">Каждый проект для нас - важный</h3>
-        <p class="paragraph-info-card qwe">
-          Мы строительная компания полного цикла. Вникаем во все детали,
-          разрабатываем планировку будущего дома, продумываем конструктивные
-          решения и общую архитектурную концепцию
+        <p class="paragraph-info-card">
+          Мы строительная компания полного цикла. <br />
+          <br />
+          <br />
+          Вникаем во все детали, разрабатываем планировку будущего дома,
+          продумываем конструктивные решения и общую архитектурную концепцию
         </p>
       </div>
 
@@ -14,14 +16,18 @@
         <House class="house-svg svg" />
         <div class="text-card">
           <h5 class="header-info-card">57 домов</h5>
-          <p class="paragraph-info-card">спроектировали и построили “под ключ”</p>
+          <p class="paragraph-info-card">
+            спроектировали и построили “под ключ”
+          </p>
         </div>
       </div>
       <div class="info-card">
         <Calendar class="calendar-svg svg" />
         <div class="text-card">
           <h5 class="header-info-card">14 лет</h5>
-          <p class="paragraph-info-card">мы на рынке загородного строительства</p>
+          <p class="paragraph-info-card">
+            мы на рынке загородного строительства
+          </p>
         </div>
       </div>
     </div>
@@ -35,6 +41,28 @@ import Calendar from '~/assets/icons/calendar.svg';
 
 <style lang="scss" scoped>
 @use 'styles/settings/MainScss' as MainScss;
+@mixin for-phone-only {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin for-phone-big {
+  @media screen and (max-width: 915px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait {
+  @media screen and (max-width: 1059px) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
 
 .info-block {
   width: 100%;
@@ -49,7 +77,15 @@ import Calendar from '~/assets/icons/calendar.svg';
   padding-inline: MainScss.$mainSideMargin;
   margin-bottom: 60px;
   gap: 16px;
-  height: 259px;
+  @include for-tablet-portrait {
+    padding-inline: MainScss.$mainSideMarginPhone;
+  }
+
+  @include for-phone-big {
+    grid-template-columns: 1fr;
+    padding-inline: MainScss.$mainSideMarginPhone;
+    width: 100%;
+  }
 }
 
 .svg {
@@ -64,6 +100,11 @@ import Calendar from '~/assets/icons/calendar.svg';
   justify-content: space-between;
   gap: 32px;
   font-family: var(--font-title);
+  height: 259px;
+  
+  @include for-phone-big {
+    height: 100%;
+  }
 }
 
 .header-card {
@@ -74,7 +115,7 @@ import Calendar from '~/assets/icons/calendar.svg';
 .header-info-card {
   font-family: var(--font-title);
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .info-card {
@@ -98,9 +139,5 @@ import Calendar from '~/assets/icons/calendar.svg';
   color: #666666;
   font-size: 20px;
   // justify-content: space-between;
-}
-
-.qwe {
-  width: 500px;
 }
 </style>

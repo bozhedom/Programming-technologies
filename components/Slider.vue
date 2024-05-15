@@ -70,7 +70,7 @@ const slides = [
       x1: slide2_landscape_1x,
       x2: slide2_landscape_2x,
     },
-    title: 'Твой идеальный дом - наша профессиональная забота',
+    title: 'Твой идеальный дом - наша забота',
     text: 'Наша компания предлагает экологичные решения в строительстве – здоровье вашей семьи на первом месте!',
   },
   {
@@ -91,8 +91,25 @@ const slides = [
 <style lang="scss" scoped>
 @use 'styles/settings/MainScss' as MainScss;
 
+@mixin for-phone-only {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}
+
 @mixin for-phone-big {
   @media screen and (max-width: 915px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait {
+  @media screen and (max-width: 1059px) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media screen and (max-width: 1200px) {
     @content;
   }
 }
@@ -109,7 +126,6 @@ const slides = [
   border-radius: 30px;
   margin: 0;
   background-color: rgb(123, 121, 121);
-  
 }
 
 .slide-image {
@@ -117,7 +133,6 @@ const slides = [
   border-radius: 30px;
   height: auto;
   object-fit: cover;
-
 }
 
 .slide-text {
@@ -127,8 +142,17 @@ const slides = [
   color: #fff;
   box-sizing: border-box;
   width: 100%;
-  padding-inline: 9vw;
-  padding-bottom: 5vw;
+  padding-inline: 144px;
+  padding-bottom: 115px;
+  @include for-tablet {
+    padding-inline: 100px;
+    padding-bottom: 75px;
+  }
+
+  @include for-phone-big {
+    padding-inline: 24px;
+    padding-bottom: 30px;
+  }
 }
 
 .slide-text-items {
@@ -137,14 +161,19 @@ const slides = [
 
 .slide-header {
   font-family: var(--font-title);
-  font-size: 4vw;
+  font-size: 46px;
   line-height: 55px;
   margin-bottom: 12px;
+
+  @include for-phone-big {
+    font-size: 30px;
+    line-height: 36px;
+  }
 }
 
 .slide-paragraph {
   line-height: 21px;
-  font-size: 1.5vw;
+  font-size: 16px;
 }
 
 .slider-controls {
