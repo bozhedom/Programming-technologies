@@ -1,6 +1,14 @@
 <template>
   <DialogRoot>
-    <DialogTrigger class="Button grass"> Оставить заявку </DialogTrigger>
+    <DialogTrigger
+      class="Button grass"
+      :style="{
+        backgroundColor: buttonColor,
+        width: buttonWidth,
+      }"
+    >
+      Оставить заявку
+    </DialogTrigger>
     <DialogPortal>
       <DialogOverlay class="DialogOverlay" />
       <DialogContent class="DialogContent">
@@ -40,9 +48,24 @@
 </template>
 
 <script setup>
-// const props = defineProps({
-//   nameButton: String,
-// });
+import { computed } from 'vue';
+
+const props = defineProps({
+  color: {
+    type: String,
+  },
+  width: {
+    type: String,
+  },
+});
+
+const buttonColor = computed(() => {
+  return props.color;
+});
+
+const buttonWidth = computed(() => {
+  return props.width;
+});
 
 import {
   DialogClose,
@@ -123,11 +146,9 @@ input {
   line-height: 1;
   font-weight: 500;
   height: 49px;
-
-  width: 204px;
 }
 .Button.grass {
-  background-color: #029f59;
+  /* background-color: #029f59; */
   color: white;
 }
 

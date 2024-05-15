@@ -29,5 +29,6 @@ import Footer from './Footer.vue';
 
 .footer {
   flex-shrink: 0;
+  // display: none;
 }
 </style>

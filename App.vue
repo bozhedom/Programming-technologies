@@ -9,12 +9,14 @@ import MainComponent from '~/components/MainComponent.vue';
 <style>
 /* @import '@csstools/normalize.css'; */
 @import 'reset-css';
+@import 'sanitize.css/assets.css';
 
 :root {
   --font-title: Montserrat, sans-serif;
   --font-text: Open-sans, sans-serif;
   font-family: var(--font-text);
 }
+
 html,
 body,
 #__nuxt {

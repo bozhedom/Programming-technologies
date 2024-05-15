@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   pages: false,
   modules: [
     'nuxt-svgo',
+    'nuxt-swiper',
     [
       '@nuxtjs/google-fonts',
       {

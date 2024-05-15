@@ -21,7 +21,12 @@
       <div class="right-part">
         <svgo-telephone class="telephone-svg" />
         <a :href="expressionPhone" class="telephone">{{ phone }}</a>
-        <MainButton />
+        <div class="phone-button">
+          <MainButton color="#029f59" width="200px" />
+        </div>
+        <div class="burger-menu" @click="getInfoData">
+          <Drawer :navigation="nav" />
+        </div>
       </div>
     </div>
   </header>
@@ -29,6 +34,7 @@
 
 <script setup>
 import MainButton from './UI/MainButton.vue';
+import Drawer from './UI/Drawer.vue';
 
 const phone = '+7 (900) 900-90-90';
 const phoneHref = '+79009009090';
@@ -52,25 +58,27 @@ const nav = [
 <style lang="scss" scoped>
 @use 'styles/settings/MainScss' as MainScss;
 $gapHeader: 24px;
+$gapHeaderPhone: 16px;
 
 @mixin for-phone-only {
-  @media (max-width: 599px) {
-    @content;
-  }
-}
-@mixin for-tablet-portrait-up {
-  @media (min-width: 600px) {
-    @content;
-  }
-}
-@mixin for-tablet-landscape-up {
-  @media (min-width: 900px) {
+  @media screen and (max-width: 600px) {
     @content;
   }
 }
 
-@mixin for-desktop-less-up {
-  @media (max-width: 1050px) {
+@mixin for-phone-big {
+  @media screen and (max-width: 915px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait {
+  @media screen and (max-width: 1059px) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media screen and (max-width: 1200px) {
     @content;
   }
 }
@@ -86,6 +94,9 @@ $gapHeader: 24px;
 .header-padding {
   display: flex;
   align-items: center;
+  justify-content: center;
+  // background-color: aquamarine; /* Для визуального представления шапки */
+  width: 100%;
 }
 
 .left-part {
@@ -94,11 +105,34 @@ $gapHeader: 24px;
 
 .right-part {
   font-family: var(--font-title);
+  margin-left: 50px;
+
+  @include for-phone-big {
+    .phone-button {
+      display: none;
+    }
+  }
+
+  @include for-phone-only {
+    margin-left: 0;
+  }
 }
 
 .telephone-svg {
   margin-right: 8px;
   color: #029f59;
+
+  @include for-phone-only {
+    display: none;
+  }
+}
+
+.navigation {
+  @include for-phone-big {
+    .nav-list {
+      display: none;
+    }
+  }
 }
 
 .nav-list {
@@ -106,11 +140,9 @@ $gapHeader: 24px;
   list-style-type: none;
   gap: $gapHeader;
 
-  
-  @include for-desktop-less-up {
-    // widows: 100px; D:
+  @include for-tablet {
+    flex-wrap: wrap;
   }
-
 }
 
 .item-link {
@@ -122,22 +154,37 @@ $gapHeader: 24px;
   text-decoration: none;
   color: MainScss.$darkGreen;
   margin-right: $gapHeader;
+  width: 158px;
+
+  @include for-phone-only {
+    display: none;
+  }
+}
+
+.burger-menu {
+  display: none;
+  @include for-phone-big {
+    display: block;
+  }
 }
 
 .container {
+  width: 1440px;
   height: 97px;
-  width: 100%;
   padding-inline: MainScss.$mainSideMargin;
-  background-color: aquamarine; /* Для визуального представления шапки */
-  align-items: center;
   justify-content: space-between;
 
-  @include for-desktop-less-up {
+  @include for-tablet-portrait {
+    padding-inline: MainScss.$mainSideMarginPhone;
   }
 }
 
 .header-logo {
   width: 160px;
   height: 39px;
+  @include for-phone-only {
+    width: 135px;
+    height: 33px;
+  }
 }
 </style>
