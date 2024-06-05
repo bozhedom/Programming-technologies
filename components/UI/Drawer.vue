@@ -106,6 +106,7 @@ input {
 
 .DialogOverlay {
   background-color: var(--black-a9);
+  z-index: 1;
   position: fixed;
   inset: 0;
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);

@@ -3,7 +3,15 @@
     <div class="slider-container">
       <slider />
     </div>
-    <informationBlock />
+    <section class="informations">
+      <informationBlock />
+    </section>
+    <section class="projects">
+      <Projects />
+    </section>
+    <section class="news">
+      <News />
+    </section>
   </main>
 </template>
 
@@ -43,5 +51,20 @@ import informationBlock from '~/components/InformationBlock';
   @include for-tablet-portrait {
     padding-inline: MainScss.$mainSideMarginPhone;
   }
+}
+
+.projects {
+  display: flex;
+  background-color: #f5f7f3;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.news {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 </style>
