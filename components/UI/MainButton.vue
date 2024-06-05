@@ -98,6 +98,7 @@ input {
 .DialogOverlay {
   background-color: var(--black-a9);
   position: fixed;
+  z-index: 1;
   inset: 0;
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -115,6 +116,7 @@ input {
   max-width: 450px;
   max-height: 85vh;
   padding: 25px;
+  z-index: 10;
   animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .DialogContent:focus {
