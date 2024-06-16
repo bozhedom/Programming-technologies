@@ -17,11 +17,15 @@
       <br />
       <h4 class="title_new">{{ title }}</h4>
       <br />
-      <p class="description_project" v-html="description" />
+      <p
+        class="description_project"
+        v-html="truncate(description, 20, { byWords: true })"
+      />
     </div>
   </div>
 </template>
 <script setup>
+import truncate from 'truncate-html';
 defineProps({
   image: {
     x1: String,

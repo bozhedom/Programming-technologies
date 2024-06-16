@@ -1,44 +1,41 @@
 <template>
   <footer class="footer-padding">
     <div class="container">
-      <div class="top-part">
-        <img
-          src="~/assets/img/logoFooter.png"
-          alt="footer-logo"
-          class="footer-logo"
-        />
+      <img
+        src="~/assets/img/logoFooter.png"
+        alt="footer-logo"
+        class="footer-logo"
+      />
 
-        <div class="nav">
-          <ul class="nav-list">
-            <li v-for="item in list" class="list-item">
-              <a :href="item.url" class="item-link">
-                {{ item.label }}
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="contact-data">
-          <ul class="contact-list">
-            <li v-for="item in infoData" class="contact-item">
-              <Telephone v-if="item.svg == 0" class="phone-icon" />
-              <Email v-else-if="item.svg == 1" class="email-icon" />
-              <FilledPoint v-else="item.svg == 2" class="filled-point-icon" />
+      <div class="nav">
+        <ul class="nav-list">
+          <li v-for="item in list" class="list-item">
+            <a :href="item.url" class="item-link">
+              {{ item.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
 
-              <a :href="item.url" class="contact-item-link"
-                >{{ item.label }}
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer-button">
-          <MainButton color="#029f59" width="200px" />
-        </div>
+      <div class="contact-data">
+        <ul class="contact-list">
+          <li v-for="item in infoData" class="contact-item">
+            <Telephone v-if="item.svg == 0" class="phone-icon" />
+            <Email v-else-if="item.svg == 1" class="email-icon" />
+            <FilledPoint v-else="item.svg == 2" class="filled-point-icon" />
+
+            <a :href="item.url" class="contact-item-link">{{ item.label }} </a>
+          </li>
+        </ul>
       </div>
-      <div class="info-data">
-        <p class="copy-right">{{ copyRight }}</p>
-        <a href="" class="police-conf">Политика конфиденциальности</a>
-        <a href="" class="term-of-use">Пользовательское соглашение</a>
+
+      <div class="footer-button">
+        <MainButton color="#029f59" width="200px" />
       </div>
+
+      <p class="copy-right">{{ copyRight }}</p>
+      <a href="" class="police-conf">Политика конфиденциальности</a>
+      <a href="" class="term-of-use">Пользовательское соглашение</a>
     </div>
   </footer>
 </template>
@@ -123,31 +120,46 @@ a {
 
 .container {
   padding-inline: MainScss.$mainSideMargin;
+  padding-block: 32px;
   min-height: 246px;
   width: 1440px;
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr 2fr;
+  grid-template-rows: 2fr 1fr;
+
+  grid-template-areas:
+    'logo nav contact button'
+    'copy police term .';
 
   @include for-tablet-portrait {
     padding-inline: 16px;
+    grid-template-columns: 1fr 1fr 1fr 1.1fr;
   }
 
   @include for-phone-big {
-    padding-left: 40px;
-    padding-right: 0;
-    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 25px;
+    grid-template-areas:
+      'logo button'
+      'nav contact'
+      'copy police'
+      'term .';
   }
-}
 
-.top-part {
-  display: flex;
-  margin-top: 32px;
-
-  @include for-phone-big {
-    flex-direction: column;
-    gap: 40px;
+  @include for-phone-only {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    grid-template-areas:
+      'logo'
+      'nav'
+      'contact'
+      'button'
+      'copy'
+      'police'
+      'term';
   }
 }
 
@@ -167,19 +179,16 @@ a {
 }
 
 .nav-list {
-  margin-right: 122px;
   width: 195px;
-
-  @include for-tablet {
-    margin-right: 62px;
-  }
 }
 
-// .nav {
-//   @include for-phone-big {
-//     mt
-//   }
-// }
+.nav {
+  grid-area: nav;
+}
+
+.contact-data {
+  grid-area: contact;
+}
 
 .contact-list {
   // margin-right: 180px;
@@ -201,49 +210,37 @@ a {
 .footer-logo {
   width: 160px;
   height: 39px;
-  margin-right: 154px;
 
-  @include for-tablet {
-    margin-right: 64px;
-  }
-}
+  grid-area: logo;
 
-.info-data {
-  display: flex;
-  margin-bottom: 33px;
-  opacity: 0.6;
-  font-size: 14px;
-
-  @include for-phone-big {
-    flex-direction: column;
-    gap: 24px;
-    // margin-top: 20px;
-  }
+  // @include for-tablet {
+  //   margin-right: 64px;
+  // }
 }
 
 .copy-right {
-  margin-right: 154px;
-  width: 160px;
-
-  @include for-tablet {
-    margin-right: 64px;
-  }
+  grid-area: copy;
+  margin-top: auto;
+  opacity: 0.6;
 }
 
 .police-conf {
-  margin-right: 112px;
-
-  @include for-tablet {
-    margin-right: 52px;
-  }
+  grid-area: police;
+  margin-top: auto;
+  opacity: 0.6;
 }
 
 .footer-button {
-  // display: flex;
+  grid-area: button;
   margin-left: auto;
-
-  @include for-phone-big {
+  @include for-phone-only {
     margin-left: 0;
   }
+}
+
+.term-of-use {
+  grid-area: term;
+  margin-top: auto;
+  opacity: 0.6;
 }
 </style>
