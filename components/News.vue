@@ -130,6 +130,10 @@ const news = [
   font-weight: bold;
   font-family: var(--font-title);
   line-height: 46px;
+
+  @include for-phone-only {
+    font-size: 28px;
+  }
 }
 
 .button_news {
